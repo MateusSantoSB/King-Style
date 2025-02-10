@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <div class="carrinho">
+        <div class="card p-3 text-center" >
+            <h4>Carrinho</h4>
+            <div class="card p-3 text-center " id="cardProduct" *ngFor="let item  of carrinho">
+                <div>
+                    <img src="{{item.imagem}}" alt="">
+                </div>
+                
+                <div id="produto">
+                    <p>{{item.nome}}</p>
+                    <p>R${{item.valor}}</p>
+                </div>
+                
+            </div>
+             
+            
+        </div>
+        
+        <div class="card p-3 text-center"> 
+            <p  *ngIf="mostrarTotal(); else msgVazio">R${{total}} </p>
+            <ng-template #msgVazio><p>{{msg}}</p></ng-template>
+            <a [routerLink]="'/buy'"  *ngIf="total"><button class="btn">Comprar</button></a>
+        </div>
+
+        
+          
+ 
+
+
+
+    </div>
+
+
+
+
+
+
+</div>

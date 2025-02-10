@@ -1,0 +1,63 @@
+.btn{
+    background-color: rgb(124, 122, 122);
+    color: rgb(0, 0, 0);    
+}
+
+.btn:hover{
+    background-color: rgb(182, 180, 180);
+}
+
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 80px;
+    margin-bottom: 20px;
+    
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    overflow: hidden;
+    flex-direction: column;
+    
+}
+.card img{
+    
+    height: 200px;
+    width: 200px; 
+}
+
+
+.btn{
+    font-size: small;
+    
+}
+
+h6{
+    cursor: pointer;
+}
+#valor{
+    font-size: x-large;
+    margin-bottom: 0;
+
+}
+
+.valor{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

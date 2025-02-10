@@ -1,0 +1,33 @@
+.display-fluid{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+p{
+    font-size: larger;
+}
+
+.btn{
+    background-color: rgb(133, 130, 130);
+    border-radius: 10px;
+}
+.btn:hover{
+    background-color: rgb(114, 109, 109);
+}
+.card-text{
+    font-size: x-large;
+}
+
+
+
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+#msgCarrinho{
+    color: green;
+}

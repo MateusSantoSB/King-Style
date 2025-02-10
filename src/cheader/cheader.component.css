@@ -1,0 +1,50 @@
+.top{
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    right: 0;
+    color:#eeffdb;
+}
+.container-fluid{
+    width: 100%;
+    background-color: #555252;
+    display: flex;
+    justify-content: right;
+    
+}
+.nav-link{
+    color: black;
+    padding:5;
+}
+.nav-link:hover{
+    border-color: white;
+    border: solid;
+    border-width: 1px;
+}
+
+.navbar{
+    padding: 0px;
+}
+img{
+    width: 20px;
+    height: 20px;   
+}
+.form-select{
+    height: 25px;
+    margin-right:5px ;
+    margin: 0;
+}
+select{
+    background-image: url("/menu-aberto.png");
+    appearance: none;
+    background-color: transparent;
+    width: 20px;
+    border: none;
+    background-size: 20px;
+    
+
+}
+select:focus{
+    outline: none;
+    box-shadow: none;
+}

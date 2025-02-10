@@ -1,0 +1,26 @@
+<div class="container-fluid">
+     
+            <div class="col-md-2" *ngFor="let produto of products;index as i">
+            <div class="card p-3 text-center" >
+                <img src={{produto.imagem}} class="card-img-top" alt="Produto 1">
+                <div class="card-body">
+            
+                    <a class="card-text" (click)="irPaginaProduto(produto.id)"><h6 class="card-title" >{{produto.nome}}</h6></a>
+                    <div class="valor">
+                        <p class="card-text" id="valor">R${{produto.valor }} </p><p> pix</p>
+                    </div>
+                    <p>ou 10x{{(produto.valor/10+5).toFixed(2)}}</p>
+
+                    
+                    
+                </div> 
+            </div>
+            </div>
+        
+            
+            
+            
+            
+
+   
+</div>

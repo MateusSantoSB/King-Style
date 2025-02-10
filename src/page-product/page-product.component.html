@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="card p-3 text-center" >
+        <div class="card-body">
+            <p *ngIf="msgAdicionado" id="msgCarrinho">{{msgAdicionado}}</p>
+            <img src={{produto.imagem}} class="card-img-top" alt="Produto 1">
+            <a><h4 class="card-title" >{{produto.nome}}</h4></a>
+            <p>{{produto.descricao}}</p>
+            <p class="card-text">R${{produto.valor.toFixed(2)}}</p>
+            <button class="btn" (click)="adicionarCarrinho()" (click)="adicionado()">Adicionar ao carrinho</button>
+            
+        </div> 
+    </div>
+
+
+
+</div> 
+

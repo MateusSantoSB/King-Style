@@ -1,0 +1,33 @@
+
+
+.carrinho{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#cardProduct{
+    display: flex;
+    flex-direction: row;
+
+}
+
+img{
+    height: 50px;
+    width: 60px;
+}
+
+#produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn{
+    background-color: rgb(133, 130, 130);
+    border-radius: 10px;
+    color: black;
+}
+.btn:hover{
+    background-color: rgb(114, 109, 109);
+}
+
