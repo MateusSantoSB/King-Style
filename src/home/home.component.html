@@ -2,25 +2,54 @@
      
             <div class="col-md-2" *ngFor="let produto of products;index as i">
             <div class="card p-3 text-center" >
-                <img src={{produto.imagem}} class="card-img-top" alt="Produto 1">
+               
+                <a (click)="irPaginaProduto(produto.id)">
+                    <img src={{produto.imagem}} class="card-img-top" alt="Produto {{i}}">
+                </a>
+                
+                
+                
                 <div class="card-body">
-            
-                    <a class="card-text" (click)="irPaginaProduto(produto.id)"><h6 class="card-title" >{{produto.nome}}</h6></a>
-                    <div class="valor">
-                        <p class="card-text" id="valor">R${{produto.valor }} </p><p> pix</p>
+                    <a class="card-text" (click)="irPaginaProduto(produto.id)">
+                        <h6 class="card-title" >{{produto.nome}}</h6>
+                    </a>
+
+
+                    <ng-template #naPromocao >
+                        <p class="card-text" class="valorNoPromo">R${{produto.valor }} <span style="font-size: 12px;">pix</span></p>
+                        <p>ou 10x{{(produto.valor/10+5).toFixed(2)}}<span style="font-size: 12px;"> cartão</span></p>
+                    </ng-template>
+
+                    <div *ngIf="produto.promocao;else naPromocao"  >
+
+                        <p class="card-text" >De <s>R${{produto.valor }}</s> </p>
+                        <p class="valorComPromo">
+
+                        Por R${{(produto.valor-(produto.valor/100*produto.valorPromocao)).toFixed(2)}} <span style="font-size: 12px;">pix</span>
+                        
+                        </p>
+                        <p id="cartao">ou 10x{{(produto.valor/10+5).toFixed(2)}}<span style="font-size: 12px;"> cartão</span></p>
+
+
                     </div>
-                    <p>ou 10x{{(produto.valor/10+5).toFixed(2)}}</p>
+                    
 
                     
                     
                 </div> 
             </div>
             </div>
-        
             
+           
             
             
             
 
    
+</div>
+<div class="barraPaginas">
+    <div *ngFor="let pagina of paginas">
+        <p (click)="mudarPagina(pagina-1)"><br>{{pagina}}</p>
+        
+    </div> 
 </div>

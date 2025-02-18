@@ -2,32 +2,61 @@
 
     <div class="carrinho">
         <div class="card p-3 text-center" >
-            <h4>Carrinho</h4>
-            <div class="card p-3 text-center " id="cardProduct" *ngFor="let item  of carrinho">
-                <div>
+            <h4>Carrinho <img src="/carrinho.png" alt="Carrinho" id="iconCarrinho"></h4>
+            <div class="card p-3 text-center " id="cardProdutos"  *ngFor="let item  of carrinho">
+                
+             
+                <div class="produto">
                     <img src="{{item.imagem}}" alt="">
-                </div>
-                
-                <div id="produto">
+               
+                <div  *ngIf="item.promocao;else noPromocao" id="descricaoProduto">
                     <p>{{item.nome}}</p>
-                    <p>R${{item.valor}}</p>
+                    <p>R${{(item.valor-(item.valor/100*item.valorPromocao)).toFixed(2)}}</p>
                 </div>
+                    <ng-template  #noPromocao >
+                        <div id="descricaoProduto">
+                            <p>{{item.nome}}</p>
+                            <p>R${{(item.valor).toFixed(2)}}</p>
+                        </div>
+                    </ng-template>
+               
+                 
+
+               
+            </div>
+            <div  class="btnAddRemove">
+                <button (click)="remover(item.id)">-</button>
+                <p>{{item.quantidade}}</p>
+                <button (click)="adicionar(item)">+</button>
                 
+            </div>
             </div>
              
             
         </div>
         
         <div class="card p-3 text-center"> 
-            <p  *ngIf="mostrarTotal(); else msgVazio">R${{total}} </p>
-            <ng-template #msgVazio><p>{{msg}}</p></ng-template>
-            <a [routerLink]="'/buy'"  *ngIf="total"><button class="btn">Comprar</button></a>
+            <div *ngIf="mostrarTotal(); else msgVazioo">
+                <p style="font-size: large;">R${{total.toFixed(2)}} </p>
+                <a [routerLink]="'/buy'"  ><button class="btn">Comprar</button></a>
+            </div>
+           
+           
+            <ng-template #msgVazioo>
+                <p>{{msg}}</p>
+            </ng-template>
         </div>
+
+
+    
+       
+        </div>
+        
 
         
           
  
-
+        
 
 
     </div>
@@ -37,4 +66,3 @@
 
 
 
-</div>

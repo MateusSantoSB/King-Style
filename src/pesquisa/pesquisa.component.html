@@ -1,0 +1,35 @@
+ 
+ <div class="container-fluid">
+    <h2>Pesquisa</h2>
+    
+    
+        
+        <div *ngIf="mostrarPesquisa();else mostrarMsg">
+
+            <div *ngFor="let produto of pesquisa;index as i">
+                <div class="card p-3 text-center"  >
+                    <a (click)="mostrarPaginaProduto(produto.id)">
+                        <img src="{{produto.imagem}}" alt="produto{{i}}">
+                    </a> 
+
+                     <a class="card-text"  (click)="mostrarPaginaProduto(produto.id)">
+                        <p>{{produto.nome}}</p>
+                    </a>
+                    
+                    <p class="card-text" id="valor">R${{produto.valor }} pix</p>
+                    <p>ou 10x{{(produto.valor/10+5).toFixed(2)}}</p>
+            </div>
+
+        </div>
+         
+       </div>
+       <ng-template #mostrarMsg>
+            <p style="color: black;">Nada foi encontrado!</p>
+       </ng-template>
+        
+
+       
+            
+
+ </div>
+ 

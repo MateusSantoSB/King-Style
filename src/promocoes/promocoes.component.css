@@ -1,0 +1,44 @@
+.barraPaginas p{
+    cursor: pointer;
+    margin-left: 20px;
+    width: 20px;
+}
+
+.barraPaginas{
+    display: flex;
+    flex-direction: row;
+}
+h4{
+    cursor: pointer;
+}
+ 
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+}
+.card p{
+    margin-bottom: 0;
+}
+.card-body{
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card img{
+    width: 300px;
+    height: 300px;
+}
+
+#cartao{
+    font-size: small;
+}
+
+

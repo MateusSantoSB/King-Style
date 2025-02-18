@@ -1,22 +1,128 @@
 <div class="container-fluid">
-    <div class="card p-3 text-center">
+    <div class="card p-3 text-center" id="topo">
         <h2>Comprar</h2>
         <p>Qual metodo de pagamento?</p>
+        <div>
+            <img src="pix.png" alt=""><img src="cartao.png" alt="">
+        </div>        
         
+       
+        <form [formGroup]="pagamentoCompleto" (ngSubmit)="mostrarPop()">    
         <div class="pagamento">
-           <a href="">Pix <img src="pix.png" alt=""></a>
-           <a href="">Cartão de Credito <img src="cartao.png" alt=""></a>
-           <a href="">Cartão de Debito <img src="cartao.png" alt=""></a>
+           <select id="metodo" formControlName="metodoPagamento">
+                <option selected></option>
+                <option value="1">Pix </option>
+                <option value="2" disabled>Cartão de Credito </option>
+           </select>
+        </div>
+
+        
+        <div class="card p-3 text-center" >
+                
+            <div *ngIf="pix;else cartao" id="endereco">
+                <p>Qual o endereco para entrega?</p>
+                <label for="cep">Cep</label>
+                <input type="text"  formControlName="cep" placeholder="Cep"   (ngModelChange)="verificarCep($event)">
+
+                <label for="estado">Estado</label>
+                <input type="text" formControlName="estado"  placeholder="Estado" >
+                
+                <label for="cidade">Cidade</label>
+                <input type="text" formControlName="cidade" placeholder="Cidade">
+
+                <label for="bairro">Bairro</label>
+                <input type="text" formControlName="bairro" placeholder="Bairro">
+
+                <label for="bairro">Complemento</label>
+                <input type="text" formControlName="complemento" placeholder="Complemento">
+
+                <label for="casalote">Casa/Lote</label>
+                <input type="text" formControlName="casalote" placeholder="Numero casa/lote">
+
+                <label for="nome">Nome Recebedor</label>
+                <input type="text" formControlName="nome" placeholder="Nome Completo">
+                <div>
+                    <p style="margin-top: 20px;">TEM UM CUPOM DE DESCONTO?</p>
+                    <div *ngIf="cupomValidado" class="cupom">
+                        <p>Cupom de {{cupomValor.valor}}% Aplicado!!</p>
+                    </div>
+                    <form [formGroup]="cupom"  >
+                        <input type="text" formControlName="nome">
+                        <button (click)="verificarCupom()" [disabled]="cupomValidado">Verificar Cupom</button>
+                    </form>
+                    
+                </div>
+                <div>
+                    <p style="margin-top: 20px;">TOTAL A PAGAR</p>
+                    <p>R${{total.toFixed(2)}}</p>
+                </div>
+                <button class="btn" [disabled]="pagamentoCompleto.invalid" type="submit">Finalizar Compra</button>
+            </div>
+
+           
+            <ng-template #cartao>
+
+            </ng-template>
+
+
+
+
 
         </div>
-    </div>
-    <div class="card p-3 text-center">
+
         
-        
+    </form> 
     </div>
+    
 
 
+    <div class="modal" tabindex="1" *ngIf="mostrarPopUp">
+        <div class="modal-dialog" >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Realizar Pagamento</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Finalize sua compra {{pagamentoCompleto.get("nome").value}}!!</p>
+                <hr>
+                
+                <div id="enderecoPop" *ngIf="mostrarPix;else mostrarPixTrue">
+                <p><strong>Endereco</strong></p>
+                <p><strong>Cidade:</strong>{{pagamentoCompleto.get("cidade").value}}</p>
+                <p><strong>Estado:</strong>{{pagamentoCompleto.get("estado").value}}</p>
+                <p><strong>Bairro:</strong>{{pagamentoCompleto.get("bairro").value}}</p>
+                <p><strong>Complemento:</strong>{{pagamentoCompleto.get("complemento").value}}</p>
+                </div>
 
+                
+                <ng-template #mostrarPixTrue >
+                  <div id="enderecoPop2">
+
+                    <img src="{{qrCode}}" alt="" style="width: 170px;height: 170px;">
+                    
+                    <div id="pagamentoRealizado" *ngIf="pagamentoRealizado">
+                        <img src="/verificar.png" alt=""><p>Pagamento Realizado!!</p>
+                    </div>
+                    
+                </div>
+                <button>Copiar Codigo</button>
+                </ng-template >
+            
+
+     
+                <hr> 
+                <div style="display: flex;justify-content: center;font-size: larger;">
+                    <p>R${{total}}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Zerar Carrinho e compra atual">Pagina inicial</button>
+              <button type="button" class="btn btn-primary" (click)="mostrarPixx()">Gerar PIX</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 </div>

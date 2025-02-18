@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <h2>ADM Produtos</h2>
+
+    <div class="card p-3 text-center">
+       
+        <form  class="form-control " [formGroup]="formProduto" (ngSubmit)="salvarProduto()">
+            <h4>Cadastrar Produto</h4>
+            
+            <label  for="nome">Nome</label>
+            <input class="input-text" type="text" formControlName="nome">
+
+            <label  for="descricao">Descricao</label>
+            <input class="input-text" type="text" formControlName="descricao">
+
+            <label for="imagem">Imagem</label>
+            <input class="input-text"  type="text" formControlName="imagem">
+
+
+            <label for="valor">Valor</label>
+            <input class="input-number" type="number" formControlName="valor">
+
+            <label for="valorPromocao">% De Desconto</label>
+            <input class="input-number" type="number" formControlName="valorPromocao">
+
+            <label for="promocao">Esta em Promocao?</label>
+            <div id="promocao">
+            <div class="form-check" >
+                <input class="form-check-input" type="radio" formControlName="promocao" id="flexRadioDefault1" value=true>
+                <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+            </div>
+            <div class="form-check" >
+                <input class="form-check-input" type="radio" formControlName="promocao" id="flexRadioDefault2" value=false>
+                <label class="form-check-label" for="flexRadioDefault2">Não</label>
+            </div>
+            </div>
+
+
+            <label for="categoria">Categoria</label>
+            <input class="input-text" type="text" formControlName="categoria">
+
+
+            <label for="tamanhos">Tamanhos disponives</label>
+            <div>
+                <input type="text" formControlName="tamanhos" >
+                <p id="adicionarTamanho" (click)="adicionarTamanho()">Adicionar tamanho</p>
+            </div>
+            <div id="tamanhos">
+                <p *ngFor="let tamanho of tamanhos">{{tamanho}}</p>
+            </div>
+            <p *ngIf="msgTamanhoMax" id="msgMax" >Maximo de tamanhos atingido!!</p>
+           
+
+
+            <label for="quantidadeEstoque">Quantidade em Estoque</label>
+            <input class="input-number"  type="number" formControlName="quantidadeEstoque">
+
+            
+
+            <button class="btn" type="submit" [disabled]="formProduto.invalid">Salvar Produto</button>
+        </form>
+        <div class="card p-2" id="visualizacao">
+
+            <h4>Pré-Visualização</h4>
+            <div class="card p-3 text-center" >
+                <a>
+                    <img src="{{formProduto.get('imagem').value}}" class="card-img-top" alt="">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title" >{{formProduto.get('nome').value}}</h5>
+                    <div class="card-text" >
+                        <p class="card-text" class="valorNoPromo" *ngIf="formProduto.get('valor').value">R${{(formProduto.get('valor').value).toFixed(2)}}<span style="font-size: 12px;">pix</span></p>
+                        <p *ngIf="formProduto.get('valor').value">ou 10x {{(formProduto.get('valor').value/10+5).toFixed(2)}}<span style="font-size: 12px;"> cartão</span></p>
+                    </div>
+                </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="cadastrado">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Produto Cadastrado!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Produto Cadastrado Com Sucesso</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Retornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>

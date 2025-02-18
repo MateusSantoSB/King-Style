@@ -3,7 +3,7 @@
     margin: 0;
     width: 100%;
     right: 0;
-    color:#eeffdb;
+    color:#ffffff;
 }
 .container-fluid{
     width: 100%;
@@ -34,17 +34,46 @@ img{
     margin-right:5px ;
     margin: 0;
 }
-select{
-    background-image: url("/menu-aberto.png");
-    appearance: none;
+
+.pesquisa{
+    margin-left: 10px;
+}
+.pesquisa button{
     background-color: transparent;
-    width: 20px;
     border: none;
+    background-image: url("/lupa.png");
+    background-size: 25px;
+    width: 20px;
+    height: 19px;
+}
+.pesquisa button:hover{
+    background-size: 26px;
+}
+
+#titulo{
+    text-decoration: none;
+    color: inherit;
+}
+
+#menuzin{
+    width: 20px;
+    height: 20px;
+}
+#menuzin .nav-link{
+
+    background-image: url("/menu-aberto.png");
     background-size: 20px;
+    border: none;
+
     
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin-right: 1;
 
 }
-select:focus{
-    outline: none;
-    box-shadow: none;
+
+#menuzin .nav-link:hover{
+    background-size: 22px;
+
 }

@@ -1,0 +1,28 @@
+ <div class="container-fluid">
+        <h1>Promoções do dia</h1>
+ <div class="produtos">
+    <div class="card p-3 text-center" *ngFor="let produto of produtos;index as i">
+       <img src="{{produto.imagem}}" alt="imagem{{i}}">
+     <div class="card-body">
+
+        <h4 class="card-title" (click)="paginaProduto(produto.id)" >{{produto.nome}}</h4>
+        <div class="valor">
+            <p class="card-text" id="valor">De <s>R${{produto.valor }}</s> </p>
+            <p>Por R${{(produto.valor-(produto.valor/100*produto.valorPromocao)).toFixed(2)}} <span style="font-size: 12px;">pix</span></p>
+            <p id="cartao">ou 10x{{(produto.valor/10+5).toFixed(2)}}</p>
+        </div>
+        
+     </div>
+    </div>
+ </div>
+ 
+
+ <div class="barraPaginas">
+    <div *ngFor="let paginas of produtoPaginas">
+        <p (click)="mudarPagina(paginas-1)">{{paginas}}</p>
+    </div>
+ </div> 
+ 
+</div>
+
+    

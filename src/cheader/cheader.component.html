@@ -1,5 +1,5 @@
 <div class="top">
-    <h1>King Style</h1>
+    <a [routerLink]="''" id="titulo"><h1>King Style</h1></a>
 </div>
 
 
@@ -7,25 +7,32 @@
     <div class=container-fluid>
         <ul class="nav ">
             
-           <!-- 
-            <li class="nav-item"><a class="nav-link " [routerLink]="''">Home</a></li>
-            <li class="nav-item"><a class="nav-link " [routerLink]="'/carrinho'">Carrinho</a></li>
-            <li class="nav-item"><a class="nav-link " href="#contato">Promoções</a></li>
-            -->
+            <div>
+                <li class="nav-item dropdown" id="menuzin">
+                    <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" [routerLink]="''">Home</a></li>
+                      <li><a class="dropdown-item" [routerLink]="'carrinho'">Carrinho</a></li>
+                      <li><a class="dropdown-item" [routerLink]="'promocoes'">Promoções</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Contatos</a></li>
+                    </ul>
+                  </li>
+            </div>
+            
 
-            <select class="form-select form-select-sm" aria-label="Small select example" (change)="to($event)" >
-               <option value="1" >Home</option>
-               <option value="2">Carrinho</option>
-                <option value="3">Promoções</option>
-
-            </select>
             
 
 
         </ul>
         <div class="pesquisa">
-             <input type="text" size="40" placeholder="Camisa Polo"><img src="lupa.png" alt="lupa" >
-        </div>
+            <form [formGroup]="pesquisarNome"  (ngSubmit)="pesquisar()">
+            <input type="text" formControlName="pesquisa" size="38" placeholder="Camisa Polo">
+             <button type="submit" title="Pesquisar"></button>
+            </form> 
+            </div>
             
 
     </div>

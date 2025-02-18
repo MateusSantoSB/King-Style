@@ -1,45 +1,48 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { ServicoService } from '../servicosHTTP/servico1/servico.service';
+import{FormControl,FormGroup,FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-cheader',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './cheader.component.html',
   styleUrl: './cheader.component.css'
 })
 export class CheaderComponent {
 
-constructor(private router:Router){
 
+  pesquisarNome=new FormGroup({
+    pesquisa:new FormControl('')
+})
+
+
+constructor(private router:Router,private service:ServicoService){
+}
+
+
+ngOnInit(){
 
 
 }
 
 
-to(event:any){
-   const opcao=event.target.value;
-  console.log(opcao)
+pesquisar(){
 
-switch(opcao){
-  case '1':
-    this.router.navigate([''])
-    break
-  case '2':
-    this.router.navigate(['carrinho'])
-    break
-  case 3:
-    
-    break
-}
-
- 
-     
-    
+  const pesquisa=this.pesquisarNome.get('pesquisa').value
   
+    this.service.pesquisarNome(pesquisa)
+    this.router.navigate(['pesquisa'])
 
 }
+
+
+opcao:number=0
 
 
 

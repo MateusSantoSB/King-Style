@@ -5,29 +5,74 @@
     justify-content: center;
     flex-direction: column;
 }
-#cardProduct{
+.card{
+    display: flex;
+    align-items: center;
+    
+}
+
+
+#iconCarrinho{
+    width: 25px;
+    height: 25px;
+}
+img{
+    height: 80px;
+    width: 80px;
+}
+
+.produto{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    
+}
+#cardProdutos{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
 
 }
-
-img{
-    height: 50px;
-    width: 60px;
-}
-
-#produto{
+#descricaoProduto{
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
+
 
 .btn{
     background-color: rgb(133, 130, 130);
     border-radius: 10px;
     color: black;
+    margin-top: 10px;
 }
 .btn:hover{
     background-color: rgb(114, 109, 109);
 }
+.final{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.final form  button{
+    margin-left: 10px;
+}
+.cupom p{
+    margin-bottom: 0;
+}
+
+.btnAddRemove {
+    display: flex;
+    flex-direction: row;
+
+}
+.btnAddRemove button{
+ 
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+}
+
 

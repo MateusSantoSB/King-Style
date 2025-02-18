@@ -3,7 +3,7 @@
 .container-fluid img  {
     height: 20px;
     width: 20px;
-
+    
 }
 .pagamento{
     display: flex;
@@ -13,3 +13,114 @@
     text-decoration: none;
  
 }
+#topo{
+    display: flex;
+    justify-content: center;
+}
+#endereco{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+#enderecoPop{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+#enderecoPop2{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+
+
+
+#endereco input{
+    margin-bottom: 20px;
+}
+
+.btn{
+    background-color: rgb(133, 130, 130);
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+}
+.btn:hover{
+    background-color: rgb(114, 109, 109);
+}
+
+.modal {
+  display: block !important;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 7%;
+}
+.modal-body{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+
+
+.cupom {
+  
+
+  color: green;
+
+  
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+ @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+  #pagamentoRealizado {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    color: green;
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+ @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

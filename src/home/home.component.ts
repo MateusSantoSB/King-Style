@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ServicoService } from '../servicosHTTP/servico.service';
+import { ServicoService } from '../servicosHTTP/servico1/servico.service';
 import { Produto } from '../models/Produto';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
-})
+}) 
 export class HomeComponent {
 constructor(private router:Router,private service:ServicoService){
 
@@ -22,7 +22,8 @@ constructor(private router:Router,private service:ServicoService){
 
 ngOnInit(){
 
-  this.listProduct();
+  this.listProdutosAll();
+  this.gerarPaginas()
 
 }
 
@@ -30,12 +31,39 @@ products:Produto[];
 carrinho:Produto[]=[];
 total:number=0
 
-listProduct(){
-    this.service.list().subscribe(respo=>{
-      this.products=respo
-    
+pagina:number=0
+tamanho:number=8
+
+paginas:number[]=[]
+paginaNumber:number
+
+
+listProdutosAll(){
+  this.paginas=[]  
+  this.service.listaHomePage(this.pagina,this.tamanho).subscribe(sub=>{
+      this.products=sub.content
+      this.paginaNumber=sub.totalPages
+      this.gerarPaginas()
     })
+    
 }
+
+
+mudarPagina(i:number){
+    this.pagina=i
+    this.listProdutosAll()
+}
+
+gerarPaginas(){
+  this.paginas=[]  
+  for(let i=1;i<=this.paginaNumber;i++){
+    this.paginas.push(i)
+}
+return true
+}
+
+
+
 
 addCart(indice:string){
 
