@@ -2,8 +2,27 @@
     <div class="card p-3 text-center" >
         <div class="card-body">
             <p *ngIf="msgAdicionado" id="msgCarrinho">{{msgAdicionado}}</p>
-            <img src={{produto.imagem}} class="card-img-top" alt="Produto 1">
-            <a><h4 class="card-title" >{{produto.nome}}</h4></a>
+           
+           
+           
+           
+            <div class="previewsProdutoPrincipal">
+                <img src="{{imagem}}" alt="imagem principal">
+
+                <div class="previewsProdutoSecundarios">
+                    <img src="{{produto.imagem2}}" alt="imagem principal" (mouseenter)="trocarPrincipal(produto.imagem2)">
+
+                    <img src="{{produto.imagem3}}" alt="imagem principal" (mouseenter)="trocarPrincipal(produto.imagem3)">
+
+                    <img src="{{produto.imagem}}" alt="imagem principal"  (mouseenter)="trocarPrincipal(produto.imagem)">
+                </div>
+                
+
+            </div>
+            
+            
+            
+            <a><h1 class="card-title" >{{produto.nome}}</h1></a>
           
             
              <ng-template #naPromocao>

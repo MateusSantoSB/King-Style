@@ -106,18 +106,18 @@
                     </div>
                     
                 </div>
-                <button>Copiar Codigo</button>
+                <button (click)="copiarCodigo()">Copiar Codigo</button>
                 </ng-template >
             
 
      
                 <hr> 
                 <div style="display: flex;justify-content: center;font-size: larger;">
-                    <p>R${{total}}</p>
+                    <p>R${{total.toFixed(2)}}</p>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Zerar Carrinho e compra atual">Pagina inicial</button>
+             <a href=""> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Zerar Carrinho e compra atual"  >Pagina inicial</button></a>
               <button type="button" class="btn btn-primary" (click)="mostrarPixx()">Gerar PIX</button>
             </div>
           </div>

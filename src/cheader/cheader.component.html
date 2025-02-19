@@ -1,5 +1,5 @@
 <div class="top">
-    <a [routerLink]="''" id="titulo"><h1>King Style</h1></a>
+    <a [routerLink]="''" id="titulo"><img src="/logo.png" alt="logo" id="logo"></a>
 </div>
 
 
@@ -29,7 +29,7 @@
         </ul>
         <div class="pesquisa">
             <form [formGroup]="pesquisarNome"  (ngSubmit)="pesquisar()">
-            <input type="text" formControlName="pesquisa" size="38" placeholder="Camisa Polo">
+            <input type="text" formControlName="pesquisa" size="30" placeholder="Camisa Polo">
              <button type="submit" title="Pesquisar"></button>
             </form> 
             </div>

@@ -77,3 +77,9 @@ img{
     background-size: 22px;
 
 }
+
+#logo{
+    width: 160px;
+    height: 65px;
+    margin-bottom: 10px;
+}

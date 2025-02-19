@@ -118,6 +118,14 @@ mostrarPixx(){
 }
 
 
+copiarCodigo() {
+  navigator.clipboard.writeText(this.qrCode2).then(() => {
+    alert('Codigo pix copiado');
+  }).catch(err => {
+    console.error('Erro ao copiar texto: ', err);
+  });
+}
+
 
 ngOnInit(){
   this.metodoDePagamento()

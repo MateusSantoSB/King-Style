@@ -6,7 +6,13 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: white;
+
+
+
+    background:white;
+ 
+
+
     padding: 0;
 }
 

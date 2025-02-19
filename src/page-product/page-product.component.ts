@@ -23,6 +23,7 @@ export class PageProductComponent {
 
   produto:Produto
   msgAdicionado:string
+  imagem:string=""
 
 
   ngOnInit(){
@@ -34,8 +35,17 @@ export class PageProductComponent {
     if(this.service.produtoPagina()!=null){
       this.service.produtoPagina().subscribe(sub=>{
         this.produto=sub
+        this.imagem=this.produto.imagem
+
       })
     }
+    
+  }
+
+
+  trocarPrincipal(imagem:string){
+    this.imagem=imagem
+
     
   }
 
