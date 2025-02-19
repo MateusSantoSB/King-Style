@@ -7,10 +7,11 @@ King style é um projeto de E-Commecer focado em itens de moda como roupas, sapa
 
 Este projeto foi desenvolvido inteiramente com os frameworks **Angular** e ** Java Spring Boot** . A api está disponivel em [KingStyleAPI](). O projeto ainda está em construção, então, mais atualizações estão por vir como:
 
--Integração de uma API de pagamento real.
--Autenticação dos usuários com **JWT**.
--Página para adição de cupons promocionais.
--Página para gerenciamento de produtos.
+- Integração de uma API de pagamento real.
+- Autenticação dos usuários com **JWT**.
+- Página para adição de cupons promocionais.
+- Página para gerenciamento de produtos.
+
 ##
 King Style is an e-commerce project focused on fashion items such as clothing, shoes/sneakers, and accessories. The user can view and choose available items for purchase, as well as search and check details such as price, promotions, available quantity, and desired sizes, based on the options for each item. The project includes a shopping cart system where users can add and remove items, and at the end, complete the purchase and make the payment.
 
