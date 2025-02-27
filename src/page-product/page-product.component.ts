@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ServicoService } from '../servicosHTTP/servico1/servico.service';
 import { Produto } from '../models/Produto';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 import { console } from 'inspector';
 
 @Component({
@@ -16,7 +16,7 @@ export class PageProductComponent {
 
 
 
-  constructor(private service:ServicoService){
+  constructor(private service:ServicoService,private router:Router){
 
   }
 
@@ -52,6 +52,7 @@ export class PageProductComponent {
 
   adicionarCarrinho(produto:Produto){
       this.service.adicionarCarrinho(produto)
+      this.router.navigateByUrl("/login")
   }
   adicionado(){
     this.msgAdicionado="Produto Adicionado ao carrinho!!"

@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+
+    <div class="modal" tabindex="1" >
+        <div class="login"  [ngClass]="{'slide-out-left':sair}" *ngIf="login;else registrar">
+            <form [formGroup]="loginDados" (ngSubmit)="logar()">
+                
+                <div id="login">
+                    <h2>Login</h2>
+                    <img src="/user.png" alt="">
+                    <input type="text" formControlName="login">
+                   
+                </div>
+
+                <div id="senha">
+                    <h2>Senha</h2>
+                    <img src="/password.png" alt="">
+                   <input type="password" formControlName="senha"> 
+                </div>
+                
+
+                <button class="btn">Entrar</button>
+            </form>
+            <span id="registrar">Não tem conta? <a (click)="irRegistrar()">Registrar</a></span>
+           
+        </div>
+
+        <ng-template #registrar>
+            <div class="registrar">
+                <form>
+                
+                    <div id="nome">
+                        <h4>Nome</h4>
+                        <input type="text">
+                    </div>
+
+                    <div id="login">
+                        <h4>Login</h4>
+                        <input type="text">
+                    </div>
+    
+                    <div id="senha">
+                        <h4>Senha</h4>
+                       <input type="password" > 
+                    </div>
+                    
+    
+                    <button class="btn">Registrar</button>
+                </form>
+                <span id="registrar">Já tem conta? <a (click)="irLogin()">Login</a></span>
+            </div>
+        </ng-template>
+
+    </div>
+    
+    
+
+</div>
