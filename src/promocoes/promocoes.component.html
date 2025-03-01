@@ -1,9 +1,13 @@
  <div class="container-fluid">
         <h1>Promoções do dia</h1>
- <div class="produtos">
-    <div class="card p-3 text-center" *ngFor="let produto of produtos;index as i">
-       <img src="{{produto.imagem}}" alt="imagem{{i}}">
-     <div class="card-body">
+
+   <div class="produtos" >
+    <div class="card p-3 text-center" *ngFor="let produto of produtos;index as i" >
+      
+      <div class="card p-2" id="cardzinho" *ngIf="estoqueVerif(produto.quantidadeEstoque);else foraEstoque">
+         <img src="{{produto.imagem}}" alt="imagem{{i}}">
+      
+       <div class="card-body">
 
         <h4 class="card-title" (click)="paginaProduto(produto.id)" >{{produto.nome}}</h4>
         <div class="valor">
@@ -14,6 +18,14 @@
         
      </div>
     </div>
+    <ng-template #foraEstoque>
+      <div class="card p-2" id="cardzinho"> 
+         <img src="{{produto.imagem}}" alt=""> <h4>Produto fora de Estoque</h4>
+      </div>
+     
+   </ng-template>
+   </div> 
+    
  </div>
  
 

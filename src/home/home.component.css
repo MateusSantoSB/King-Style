@@ -17,6 +17,14 @@
     
 }
 
+#foraEstoque{
+ background-color: rgb(255, 255, 255);  
+ color: red;  
+}
+#foraEstoque h6{
+    color: blue;
+}
+
 .card{
     display: flex;
     align-items: center;

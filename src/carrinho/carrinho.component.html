@@ -12,11 +12,14 @@
                 <div  *ngIf="item.promocao;else noPromocao" id="descricaoProduto">
                     <p>{{item.nome}}</p>
                     <p>R${{(item.valor-(item.valor/100*item.valorPromocao)).toFixed(2)}}</p>
+                    <p>Tamanho:{{item.tamanhos}}</p>
+
                 </div>
                     <ng-template  #noPromocao >
                         <div id="descricaoProduto">
                             <p>{{item.nome}}</p>
                             <p>R${{(item.valor).toFixed(2)}}</p>
+                            <p>Tamanho:{{item.tamanhos}}</p>
                         </div>
                     </ng-template>
                

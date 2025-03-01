@@ -73,15 +73,20 @@ listarPromocoesPage(pagina:number,tamanho:number):Observable<any>{
  
 //Carrinho
   adicionarCarrinho(produto:Produto){
-      let pesquisa=this.carrinho.find(pesquisaid=>pesquisaid.id==produto.id)
-      if(pesquisa!=undefined){
-        pesquisa.quantidade+=1 
+
+
+    let pesquisa=this.carrinho.find(pes=>pes.id==produto.id && pes.tamanhos[0]==produto.tamanhos[0])
+ 
+    if(pesquisa!=undefined){
+      
+      pesquisa.quantidade+=1 
         console.log(pesquisa.nome)
 
     }else{
       produto.quantidade=1
       this.carrinho.push(produto)
       this.carrinhoSubject.next([...this.carrinho])
+
     }
 
 

@@ -3,12 +3,12 @@ import { ServicoService } from '../servicosHTTP/servico1/servico.service';
 import { Produto } from '../models/Produto';
 import { CommonModule } from '@angular/common';
 import { Route, Router, RouterModule } from '@angular/router';
-import { console } from 'inspector';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-page-product',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,FormsModule,ReactiveFormsModule],
   templateUrl: './page-product.component.html',
   styleUrl: './page-product.component.css'
 })
@@ -22,8 +22,17 @@ export class PageProductComponent {
 
 
   produto:Produto
-  msgAdicionado:string
+  msgAdicionado:boolean=false
   imagem:string=""
+
+
+irHome(){
+  this.router.navigate([''])
+
+}
+irCarrinho(){
+  this.router.navigate(['/carrinho'])
+}
 
 
   ngOnInit(){
@@ -51,13 +60,21 @@ export class PageProductComponent {
 
 
   adicionarCarrinho(produto:Produto){
-      this.service.adicionarCarrinho(produto)
-  }
-  adicionado(){
-    this.msgAdicionado="Produto Adicionado ao carrinho!!"
-    return true
-  }
+    produto.tamanhos=[]
+    let tamanho:string=this.tamanhosForm.get("tamanho").value
+    produto.tamanhos.push(tamanho)
 
+    this.service.adicionarCarrinho(produto)
+    this.msgAdicionado=true
+
+  
+  }
+  
+
+
+  tamanhosForm=new FormGroup({
+       tamanho:new FormControl("",Validators.required)
+  })
 
 
 

@@ -41,7 +41,38 @@ img{
     height: 200px;
     width: 200px;
 }
+.tamanhos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.form-check{
+  margin-left:10px ;
+  background-color: #555252;
+  color: white;
+  padding-right: 10px ;
 
+}
+.modal img{
+  width: 40px;
+  height: 40px;
+}
+.modal{
+  display: block !important;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 11%;
+}
+.modal-dialog{
+ 
+  margin-top: 10%;
+}
+.modal-body{
+  display: flex; 
+  justify-content: center;
+align-items: center;
+}
 
 
 .card-body{

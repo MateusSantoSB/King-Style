@@ -17,7 +17,13 @@ constructor(private router:Router,private service:ServicoService){
 
 }
 
-
+estoque(estoque:number){
+  if(estoque>0){
+    return true
+  }
+  
+  return false
+}
 
 
 ngOnInit(){

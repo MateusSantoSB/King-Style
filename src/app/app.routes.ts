@@ -12,7 +12,7 @@ import { userguardGuard } from '../servicosHTTP/authGuardUser/userguard.guard';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
-    {path: 'buy',component:BuyComponent},
+    {path: 'buy',component:BuyComponent, canActivate:[userguardGuard]},
     {path:'carrinho',component:CarrinhoComponent, canActivate:[userguardGuard] },
     {path:'produto',component:PageProductComponent},
     {path:'pesquisa',component:PesquisaComponent},

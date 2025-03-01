@@ -20,10 +20,17 @@ constructor(private service:ServicoService){
 produtos:Produto[]
 produtoPagina:number
 produtoPaginas:number[]
-
+estoque:boolean=true
 promocao:number
 
 
+estoqueVerif(estoque:number):boolean{
+  console.log("sss"+estoque)
+  if(estoque>0){
+      return true
+  }
+  return false
+}
 
 
 

@@ -1,7 +1,7 @@
 <div class="container-fluid">
-     
-            <div class="col-md-2" *ngFor="let produto of products;index as i">
-            <div class="card p-3 text-center" >
+      
+            <div class="col-md-2" *ngFor="let produto of products;index as i" >
+            <div class="card p-3 text-center"  *ngIf="estoque(produto.quantidadeEstoque);else foraEstoque" >
                
                 <a (click)="irPaginaProduto(produto.id)">
                     <img src={{produto.imagem}} class="card-img-top" alt="Produto {{i}}" loading="lazy">
@@ -38,6 +38,23 @@
                     
                 </div> 
             </div>
+
+
+            <ng-template #foraEstoque>
+                
+                <div class="card p-3 text-center" id="foraEstoque">
+                    <img src="{{produto.imagem}}"  alt=""><h4>Produto Esgotado</h4>
+                    <div class="card-body">
+                            <h6 class="card-title" >{{produto.nome}}</h6>
+                       
+                    </div>
+
+                </div>
+            
+            </ng-template>
+
+
+
             </div>
             
            
