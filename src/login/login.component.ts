@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicoService } from '../servicosHTTP/servico2/servico.service';
 import { error } from 'console';
+import { authenticationGuard } from '../servicosHTTP/authGuardAdm/authentication.guard';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ login:boolean=true
 registrar:boolean=false
 sair:boolean=false
 
-
+erroCredenciais:string=""
+erroCredenciaisBool:boolean=false
 
   irRegistrar(){
     this.sair=true
@@ -44,6 +46,16 @@ sair:boolean=false
     senha:new FormControl('')
 })
 
+credenciaisErro(){
+  this.erroCredenciais="Verifique seus dados!!"
+  this.erroCredenciaisBool=true
+  setInterval(()=>{
+    this.erroCredenciaisBool=false
+  },5000)
+
+}
+
+
 logar(){
   const login={
     login:this.loginDados.get('login').value,
@@ -52,11 +64,16 @@ logar(){
 
   this.service.login(login).subscribe({
     next:(response)=>{
-      console.log("Usuario logado!!",response)
+      console.log("Usuario logado!!")
+      let token:string=response.token
       
+      this.service.salvarToken(token);
+      this.service.rota()
     },
     error:(error)=>{
       console.log("Usuario não logado!!",error)
+      this.credenciaisErro()
+      this.loginDados.reset()
     },complete(){
       console.log("Requisição completa!!")
     }

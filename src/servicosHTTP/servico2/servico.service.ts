@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Produto } from '../../models/Produto';
 import { Login } from '../../models/Login';
+import { Router } from '@angular/router';
+import {jwtDecode} from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicoService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   backUrl:string="http://localhost:8080"
 
@@ -17,9 +20,33 @@ export class ServicoService {
     return this.http.post<Produto>(this.backUrl+"/produto",produto);
   }
 
-  login(login:Login):Observable<Login>{
+  login(login:Login):Observable<any>{
     return this.http.post<Login>(this.backUrl+"/auth/login",login)
   } 
 
+  salvarToken(token:string){
+    const decoderJWT:any=jwtDecode(token)
+    const nome=decoderJWT.sub
+    localStorage.setItem('token',token)
+    localStorage.setItem('nome',nome)
+  }
+
+  pegarToken(){
+    return localStorage.getItem('token')
+    
+  }
+
+  rota(){
+      const token=localStorage.getItem('token')
+      const decoderJWT:any=jwtDecode(token)
+      if( decoderJWT.role=="ADMIN"){
+        
+        this.router.navigate(["/admProduto"])
+      }else{
+        this.router.navigate([""])
+      }
+    }
+
+ 
 
 }

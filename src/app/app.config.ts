@@ -6,6 +6,8 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule,provideHttpClient } from '@angular/common/http';
 import { withFetch } from '@angular/common/http';
 
+import { InterceptorService } from '../servicosHTTP/interceptor/interceptor.service';
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),provideHttpClient(),provideHttpClient(withFetch())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),provideHttpClient(),provideHttpClient(withFetch()),InterceptorService]
 };

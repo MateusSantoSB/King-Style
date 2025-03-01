@@ -52,7 +52,6 @@ export class PageProductComponent {
 
   adicionarCarrinho(produto:Produto){
       this.service.adicionarCarrinho(produto)
-      this.router.navigateByUrl("/login")
   }
   adicionado(){
     this.msgAdicionado="Produto Adicionado ao carrinho!!"

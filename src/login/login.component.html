@@ -18,7 +18,7 @@
                    <input type="password" formControlName="senha"> 
                 </div>
                 
-
+                <span id="erroCredenciais" *ngIf="erroCredenciaisBool">{{erroCredenciais}}</span>
                 <button class="btn">Entrar</button>
             </form>
             <span id="registrar">Não tem conta? <a (click)="irRegistrar()">Registrar</a></span>

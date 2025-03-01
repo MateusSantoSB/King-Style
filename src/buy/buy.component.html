@@ -39,8 +39,7 @@
                 <label for="casalote">Casa/Lote</label>
                 <input type="text" formControlName="casalote" placeholder="Numero casa/lote">
 
-                <label for="nome">Nome Recebedor</label>
-                <input type="text" formControlName="nome" placeholder="Nome Completo">
+                
                 <div>
                     <p style="margin-top: 20px;">TEM UM CUPOM DE DESCONTO?</p>
                     <div *ngIf="cupomValidado" class="cupom">
@@ -81,11 +80,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Realizar Pagamento</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="xFechar()"></button>
             </div>
             <div class="modal-body">
-                <p>Finalize sua compra {{pagamentoCompleto.get("nome").value}}!!</p>
-                <hr>
+                <p>Finalize sua compra {{nomeUsuario}}!!</p>
+                <hr> 
                 
                 <div id="enderecoPop" *ngIf="mostrarPix;else mostrarPixTrue">
                 <p><strong>Endereco</strong></p>
@@ -117,7 +116,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-             <a href=""> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Zerar Carrinho e compra atual"  >Pagina inicial</button></a>
+              <button type="button" class="btn btn-secondary"  (click)="xFechar()">Voltar</button>
               <button type="button" class="btn btn-primary" (click)="mostrarPixx()">Gerar PIX</button>
             </div>
           </div>

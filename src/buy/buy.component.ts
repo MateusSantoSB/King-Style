@@ -22,7 +22,7 @@ constructor(private service:ServicoService){
 
 }
 
-pix:boolean=false
+pix:boolean=false 
 metodoPag:string="slamos"
 total:number=0
 cep:Endereco
@@ -36,12 +36,19 @@ pagamentoRealizado:boolean=false
 
 
 
+nomeUsuario:string=localStorage.getItem("nome")
+
+
+
 anexarCarrinho(){
   this.service.listaCarrinho().subscribe(sub=>{
     this.produto=sub
   })
 }
 
+xFechar(){
+  this.mostrarPopUp=false
+}
 
 
 
@@ -52,7 +59,6 @@ pagamentoCompleto=new FormGroup({
   bairro:new FormControl('',[Validators.required]),
   complemento:new FormControl('',[Validators.required]),
   casalote:new FormControl('',[Validators.required]),
-  nome:new FormControl('',[Validators.required]),
   total:new FormControl(this.total),
   metodoPagamento:new FormControl('',[Validators.required])
 })
@@ -64,7 +70,7 @@ cupom=new FormGroup({
 
 gerarPix(){
 const carrinho:Carrinho={
-    nome:this.pagamentoCompleto.get("nome").value,
+    nome:this.nomeUsuario,
     produtos:this.produto,
     cupom:this.cupomValor  
 }
