@@ -91,6 +91,30 @@
     font-size: 17px;
 }
 
+.top{
+  display: flex;
+  margin-top: 10px;
+}
+
+.voltar{
+  width: 5%;
+}
+.voltar img{
+  height: 40px;
+  width: 40px;
+  border: solid;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.voltar img:hover{
+  height: 45px;
+  width: 45px;
+}
+.titulo{
+  width: 90%;
+  text-align: center;
+}
+
 
 #msgMax {
     color: rgb(128, 15, 0);

@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ServicoService } from '../servicosHTTP/servico2/servico.service';
 import { Produto } from '../models/Produto';
+import { routes } from '../app/app.routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adm-produto',
@@ -14,12 +16,16 @@ import { Produto } from '../models/Produto';
 export class AdmProdutoComponent {
 
 
-constructor(private service:ServicoService){
+constructor(private service:ServicoService,private router:Router){
 }
 
 tamanhos:string[]=[]
 msgTamanhoMax:boolean=false
 cadastrado:boolean=false
+
+voltar(){
+  this.router.navigate(['/adm'])
+}
 
 formProduto=new FormGroup({
     nome:new FormControl('',Validators.required),

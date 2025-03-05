@@ -19,6 +19,7 @@
                 </div>
                 
                 <span id="erroCredenciais" *ngIf="erroCredenciaisBool">{{erroCredenciais}}</span>
+                
                 <button class="btn">Entrar</button>
             </form>
             <span id="registrar">Não tem conta? <a (click)="irRegistrar()">Registrar</a></span>
@@ -27,25 +28,35 @@
 
         <ng-template #registrar>
             <div class="registrar">
-                <form>
-                
+                <form [formGroup]="registroDados" (ngSubmit)="registro()">
+                 
                     <div id="nome">
                         <h4>Nome</h4>
-                        <input type="text">
+                        <input type="text" formControlName="nome">
+                    </div>
+
+                    <div id="email">
+                        <h4>Email</h4>
+                       <input type="text" formControlName="email" > 
                     </div>
 
                     <div id="login">
                         <h4>Login</h4>
-                        <input type="text">
+                        <input type="email" formControlName="login">
                     </div>
     
                     <div id="senha">
                         <h4>Senha</h4>
-                       <input type="password" > 
+                       <input type="password" formControlName="senha" > 
                     </div>
+
                     
-    
-                    <button class="btn">Registrar</button>
+                    
+                    <span *ngIf="userRegis" class="ok" >Usuario registrado!!</span>
+                    <span *ngIf="erroMsg" class="erro">Erro ao registrar Usuario!!</span>
+                    <span *ngIf="erroMsg" class="erro">Verifique os campos!!</span>
+
+                    <button class="btn" type="submit" >Registrar</button>
                 </form>
                 <span id="registrar">Já tem conta? <a (click)="irLogin()">Login</a></span>
             </div>

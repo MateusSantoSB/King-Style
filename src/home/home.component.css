@@ -48,6 +48,7 @@
 
 h6{
     cursor: pointer;
+    
 }
 .valorNoPromo{
     font-size: x-large;
@@ -95,5 +96,25 @@ a{
 .card-text{
     font-size: large;
     margin-bottom: 0; 
+    
 }
+
+
+.card-title {
+    font-size: 16px; 
+    line-height: 1.2em; 
+    height: 3.4em; 
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+#titulo{
+    text-decoration: none;
+}
+
+
 

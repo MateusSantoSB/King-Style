@@ -1,0 +1,81 @@
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+
+.top{
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .voltar{
+    width: 5%;
+  }
+  .voltar img{
+    height: 40px;
+    width: 40px;
+    border: solid;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .voltar img:hover{
+    height: 45px;
+    width: 45px;
+  }
+  .titulo{
+    width: 90%;
+    text-align: center;
+  }
+
+.table{
+    width: 50%;
+}
+.tabela{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn{
+    margin-top: 10px;
+    background-color: rgb(133, 130, 130);
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+   
+}
+.btn:hover{
+    background-color: rgb(114, 109, 109);
+}
+
+
+
+
+.modal img{
+    width: 80px;
+    height: 80px;
+  }
+  .modal{
+    display: block !important;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 11%;
+  }
+  .modal h5{
+    margin-bottom: 20px;
+  }
+  .modal-dialog{
+   
+    margin-top: 10%;
+  }
+  .modal-body{
+    display: flex; 
+    text-align: left;
+    align-items: center;
+    flex-direction: column;
+  }
+  

@@ -1,0 +1,94 @@
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+
+.top{
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .voltar{
+    width: 5%;
+  }
+  .voltar img{
+    height: 40px;
+    width: 40px;
+    border: solid;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .voltar img:hover{
+    height: 45px;
+    width: 45px;
+  }
+  .titulo{
+    width: 90%;
+    text-align: center;
+  }
+
+  .form-control{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-check-input{
+    color: blue;
+    background-color: rgb(133, 130, 130);   
+}
+.form-check{
+    height: 10px;
+}
+
+#adicionarTamanho{
+    cursor: pointer;
+    border: solid;
+    border-width: 1px;
+}
+
+#formularioATT input{
+    margin-bottom:5vh;
+}
+
+#formularioATT textarea{
+    margin-bottom:5vh;
+    max-height: 300px;
+}
+
+#promocao{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamanhos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.tamanhos p{
+    margin-left: 5px;
+    background-color: rgb(194, 192, 192);
+
+}
+
+.tamanhos p:hover{
+    background-color: rgb(161, 161, 161);
+}
+
+.btn{
+    background-color: rgb(133, 130, 130);
+    border-radius: 10px;
+    color: black;
+    margin-top: 10px;
+   
+}
+.btn:hover{
+    background-color: rgb(114, 109, 109);
+}

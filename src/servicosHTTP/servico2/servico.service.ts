@@ -5,6 +5,7 @@ import { Produto } from '../../models/Produto';
 import { Login } from '../../models/Login';
 import { Router } from '@angular/router';
 import {jwtDecode} from 'jwt-decode';
+import { Registro } from '../../models/Registro';
 
 
 @Injectable({
@@ -23,6 +24,10 @@ export class ServicoService {
   login(login:Login):Observable<any>{
     return this.http.post<Login>(this.backUrl+"/auth/login",login)
   } 
+
+  registrar(registro:Registro):Observable<any>{
+      return this.http.post<Registro>(this.backUrl+"/auth/register",registro)
+  }
 
   salvarToken(token:string){
     const decoderJWT:any=jwtDecode(token)

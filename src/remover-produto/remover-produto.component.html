@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="top">
+     <div class="voltar">
+       <img src="/voltar.png" alt="" (click)="voltar()"> 
+    </div>    
+    <div class="titulo">
+     <h2>Remover Produto</h2>
+    </div>
+
+    </div>
+
+    <div class="card p-3 text-center">
+        <div class="pesquisa">
+            <span>ID do Produto:</span>
+            <div>
+               <form [formGroup]="pesquisa" (ngSubmit)="pesquisar()">
+                <input type="text" placeholder="Produto id" formControlName="id"> <button >buscar</button>
+            </form>
+            </div>
+        </div>
+    </div>
+<div class="tabela">
+
+
+<table class="table table-striped table-hover" *ngIf="mostrarTabela">
+ <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Estoque</th>
+    </tr>
+ </thead>
+ <tbody>
+    <tr>
+        <th>{{produto.id}}</th>
+        <th>{{produto.nome}}</th>
+        <th>{{produto.valor}}</th>
+        <th>{{produto.quantidadeEstoque}}</th>
+    </tr>
+ </tbody>
+</table>
+<div *ngIf="mostrarTabela">
+    <button class="btn"   (click)="remover()">Remover Produto</button>
+
+</div>
+</div>
+
+
+
+
+<div class="modal" tabindex="1" role="dialog" *ngIf="removerMsg">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <div>
+            <h5>Tem certeza que deseja remover o produto:</h5>
+            <p><strong>ID:</strong> {{produto.id}}</p>
+            <p><strong>NOME:</strong>{{produto.nome}}</p>
+            <p><strong>VALOR:</strong>{{produto.valor}}</p>
+          </div>
+    
+          <img src="{{produto.imagem}}" alt="">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="voltarRemover()">Voltar</button>
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="removerCompleto()">Remover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="removerComplet">
+  <div class="modal" tabindex="1" role="dialog"  (click)="fecharModal()">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <h5>Produto Removido com Sucesso!!</h5>
+        
+          <img src="/ok.png" alt="">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div> 
+
+

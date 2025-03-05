@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="top">
+     <div class="voltar">
+       <img src="/voltar.png" alt="" (click)="voltar()"> 
+    </div>    
+    <div class="titulo">
+     <h2>Atualizar produto</h2>
+    </div>
+ 
+    </div>
+    <div class="card p-3 text-center">
+        <div class="pesquisa">
+            <span>Buscar Produto:</span>
+            <div>
+               <form [formGroup]="pesquisa" (ngSubmit)="pesquisar()">
+                <input type="text" placeholder="Produto id" formControlName="id"> <button >buscar</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="card p-3 text-center" id="formularioATT" *ngIf="pesquisaResultado" >
+        <form  class="form-control " [formGroup]="formProduto" (ngSubmit)="atualizarProduto()">
+            <h4>{{produto.id}}</h4>
+             
+            <label  for="nome">Nome</label>
+            <input class="input-text" type="text" formControlName="nome">
+
+            <label  for="descricao">Descricao</label>
+            <textarea formControlName="descricao"></textarea>
+
+            <label for="imagem">Imagem Principal</label>
+            <input class="input-text"  type="text" formControlName="imagem">
+
+            <label for="imagem">Imagem 2</label>
+            <input class="input-text"  type="text" formControlName="imagem2">
+
+            <label for="imagem">Imagem 3</label>
+            <input class="input-text"  type="text" formControlName="imagem3">
+
+            <label for="valor">Valor</label>
+            <input class="input-number" type="number" formControlName="valor">
+
+            <label for="valorPromocao">% De Desconto</label>
+            <input class="input-number" type="number" formControlName="valorPromocao">
+
+            <label for="promocao">Esta em Promocao?</label>
+            <div id="promocao">
+            <div class="form-check" >
+                <input class="form-check-input" type="radio" formControlName="promocao" id="flexRadioDefault1" [value]="true">
+                <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+            </div>
+            <div class="form-check" >
+                <input class="form-check-input" type="radio" formControlName="promocao" id="flexRadioDefault2" [value]="false">
+                <label class="form-check-label" for="flexRadioDefault2">Não</label>
+            </div>
+            </div>
+
+
+            <label for="categoria">Categoria</label>
+            <input class="input-text" type="text" formControlName="categoria">
+
+
+            <label for="tamanhos">Tamanhos</label>
+            <input type="text" formControlName="tamanhos" >
+            <p>{{tamanhos+" "}}</p>
+            <div class="tamanhos">
+                <p id="adicionarTamanho" (click)="adicionarTamanho()">Adicionar tamanho</p>
+                <p id="adicionarTamanho" (click)="removerTamanho()">Remover tamanho</p>
+
+            </div>
+          
+           
+
+
+            <label for="quantidadeEstoque">Quantidade em Estoque</label>
+            <input class="input-number"  type="number" formControlName="quantidadeEstoque">
+
+            
+
+            <button class="btn" type="submit" [disabled]="formProduto.invalid" [disabled]="verfiTamanhos()" >Atualizar Produto</button>
+        </form>
+    </div>
+
+</div>

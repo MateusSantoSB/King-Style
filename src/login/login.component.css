@@ -49,6 +49,20 @@
     outline: none;
 }
 
+.erro{
+  color: rgb(243, 59, 59);
+
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+.ok{
+  color: rgb(9, 255, 0);
+
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
 .btn{
     background-color: white;
 }
@@ -86,7 +100,7 @@
 }
 .registrar input{
     color: white;
-    margin-bottom: 4vh;
+    margin-bottom: 2vh;
     border-top:transparent ;
     border-left: transparent;
     border-right: transparent;

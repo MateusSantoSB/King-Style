@@ -1,16 +1,24 @@
 <div class="container-fluid">
-    <h2>ADM Produtos</h2>
+   <div class="top">
+    <div class="voltar">
+      <img src="/voltar.png" alt="" (click)="voltar()"> 
+   </div>    
+   <div class="titulo">
+    <h2>Salvar Produto</h2>
+   </div>
+
+   </div>
 
     <div class="card p-3 text-center">
        
         <form  class="form-control " [formGroup]="formProduto" (ngSubmit)="salvarProduto()">
-            <h4>Cadastrar Produto</h4>
-            
+            <h4>Dados Produto</h4>
+             
             <label  for="nome">Nome</label>
             <input class="input-text" type="text" formControlName="nome">
 
             <label  for="descricao">Descricao</label>
-            <input class="input-text" type="text" formControlName="descricao">
+            <textarea formControlName="descricao"></textarea>
 
             <label for="imagem">Imagem Principal</label>
             <input class="input-text"  type="text" formControlName="imagem">

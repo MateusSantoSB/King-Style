@@ -25,7 +25,6 @@ promocao:number
 
 
 estoqueVerif(estoque:number):boolean{
-  console.log("sss"+estoque)
   if(estoque>0){
       return true
   }

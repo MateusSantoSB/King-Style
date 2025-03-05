@@ -120,6 +120,7 @@ mostrarPixx(){
 
   setInterval(()=>{
     this.pagamentoRealizado=true
+    this.gerarPix()
   },10000)
 }
 

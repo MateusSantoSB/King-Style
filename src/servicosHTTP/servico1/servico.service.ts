@@ -28,6 +28,20 @@ export class ServicoService {
   private pesquisaProduto$=this.pesquisaProdutoSubject.asObservable()
 
  
+//Atualizar Produto
+
+atualizarProduto(id:string,produto:Produto):Observable<any>{
+  return this.http.put<any>("http://localhost:8080/produto/att/"+id,produto)
+
+
+}
+
+//remover Produto
+
+removerProduto(id:string):Observable<Produto>{
+ return this.http.delete<Produto>("http://localhost:8080/produto/del/"+id)
+}
+
 
 
 //Listar Produtos
@@ -59,6 +73,10 @@ export class ServicoService {
   listarPesquisa():Observable<any>{
 
     return this.pesquisaProduto$
+  }
+
+  pesquisaId(id:string):Observable<Produto>{
+   return this.http.get<Produto>("http://localhost:8080/produto/"+id)
   }
 //=====================================================//
    

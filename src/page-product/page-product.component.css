@@ -48,10 +48,12 @@ img{
   margin-bottom: 10px;
 }
 .form-check{
+
   margin-left:10px ;
   background-color: #555252;
   color: white;
   padding-right: 10px ;
+  padding-left: 29px;
 
 }
 .modal img{

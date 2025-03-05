@@ -8,8 +8,12 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
     
 
     const token=localStorage.getItem('token')
-    const decoderJWT:any=jwtDecode(token)
     const router=inject(Router)
+
+    if(token!=null){
+      const decoderJWT:any=jwtDecode(token)
+
+
     if(decoderJWT.role==="ADMIN"){
       
       return true
@@ -17,6 +21,10 @@ export const authenticationGuard: CanActivateFn = (route, state) => {
       router.navigate(["/login"])
       return false
     }
+  }else{
+    router.navigate(["/login"])
+    return false
+  }
   
  
 
