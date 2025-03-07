@@ -16,8 +16,10 @@
                       <li><a class="dropdown-item" [routerLink]="''">Home</a></li>
                       <li><a class="dropdown-item" [routerLink]="'carrinho'">Carrinho</a></li>
                       <li><a class="dropdown-item" [routerLink]="'promocoes'">Promoções</a></li>
+                      <li *ngIf="areaUsuario()"><a class="dropdown-item" [routerLink]="'adm'">{{usuario}}</a></li>
+
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Contatos</a></li>
+                      <li><a class="dropdown-item" href="#">Sobre</a></li>
                     </ul>
                   </li>
             </div>

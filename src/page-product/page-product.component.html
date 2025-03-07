@@ -39,13 +39,14 @@
             <p>Tamanhos:</p>
             <form [formGroup]="tamanhosForm">            
             <div class="tamanhos">
+                    
                     <div class="form-check" *ngFor="let tamanho of produto.tamanhos;index as i" >
                         <input class="form-check-input" type="radio" formControlName="tamanho" id="{{i}}" value={{tamanho}}>
                         <label class="form-check-label" for="{{i}}">{{tamanho}}</label>
                     </div>
             </div>
             
-            <button class="btn" (click)="adicionarCarrinho(produto)"  [disabled]="tamanhosForm.invalid">Adicionar ao carrinho</button>
+            <button class="btn" (click)="adicionarCarrinho()"  [disabled]="tamanhosForm.invalid">Adicionar ao carrinho</button>
             </form>
         
         </div> 
@@ -62,24 +63,20 @@
         <p style="font-size: small;">{{produto.descricao}}</p>
         
     </div>
-
-    <div class="modal" tabindex="1" role="dialog" *ngIf="msgAdicionado">
+<div  *ngIf="msgAdicionado">
+    <div class="modal" tabindex="1" role="dialog" (click)="fechar()">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              
-            </div>
+           
             <div class="modal-body">
               <p>Produto adicionado ao carrinho!! <img src="/ok.png" alt="ok"></p>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" (click)="irHome()">Home</button>
-
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="irCarrinho()">Carrinho</button>
-            </div>
+            
           </div>
         </div>
       </div>
+</div>
+   
 
 
 

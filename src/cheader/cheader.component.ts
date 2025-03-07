@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ServicoService } from '../servicosHTTP/servico1/servico.service';
 import{FormControl,FormGroup,FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {jwtDecode} from 'jwt-decode';
 
 
 
@@ -25,12 +26,34 @@ export class CheaderComponent {
 constructor(private router:Router,private service:ServicoService){
 }
 
-
+usuario:string
 ngOnInit(){
-
+  this.areaUsuario()
 
 }
 
+
+areaUsuario(){
+
+  const token=localStorage.getItem('token')
+
+  
+  if(token!=null){
+    const decoderJWT:any=jwtDecode(token)
+    const nome=localStorage.getItem('nome')
+    let role:string=decoderJWT.role
+
+    if(role=="ADMIN"){
+      this.usuario=nome
+      return true
+    }else{
+      return false
+    }
+    
+  }else{
+    return false
+  }
+}
 
 pesquisar(){
 

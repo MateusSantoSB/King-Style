@@ -27,3 +27,9 @@
     width: 90%;
     text-align: center;
   }
+
+  tbody th{
+      height: 10vh;
+      width: 10vh;
+      overflow: auto;
+  }

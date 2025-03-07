@@ -46,7 +46,7 @@ export class ServicoService {
       const decoderJWT:any=jwtDecode(token)
       if( decoderJWT.role=="ADMIN"){
         
-        this.router.navigate(["/admProduto"])
+        this.router.navigate(["/adm"])
       }else{
         this.router.navigate([""])
       }

@@ -63,6 +63,7 @@ img{
 .modal{
   display: block !important;
   position: fixed;
+
   background: rgba(0, 0, 0, 0.5);
   top: 11%;
 }
@@ -73,7 +74,8 @@ img{
 .modal-body{
   display: flex; 
   justify-content: center;
-align-items: center;
+  align-items: center;
+  height: 15vh;
 }
 
 

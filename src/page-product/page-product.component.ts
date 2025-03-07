@@ -56,20 +56,22 @@ irCarrinho(){
     this.imagem=imagem
 
     
-  }
+  } 
 
 
-  adicionarCarrinho(produto:Produto){
-    produto.tamanhos=[]
+  adicionarCarrinho(){
     let tamanho:string=this.tamanhosForm.get("tamanho").value
-    produto.tamanhos.push(tamanho)
+    let produto:Produto={...this.produto, tamanhos:[tamanho]}
 
     this.service.adicionarCarrinho(produto)
     this.msgAdicionado=true
 
   
   }
-  
+  fechar(){
+    this.msgAdicionado=false
+
+  }
 
 
   tamanhosForm=new FormGroup({

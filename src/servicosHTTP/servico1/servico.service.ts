@@ -23,7 +23,6 @@ export class ServicoService {
   total$=this.totalSubject.asObservable()
 
 
-  private pesquisaProduto:Produto[]
   private pesquisaProdutoSubject=new BehaviorSubject<Produto[]>([])
   private pesquisaProduto$=this.pesquisaProdutoSubject.asObservable()
 
@@ -56,6 +55,16 @@ removerProduto(id:string):Observable<Produto>{
 //=====================================================//
 
 
+
+//pesquisa produto ADM
+searchNome(pesquisa:string):Observable<any>{
+  const pagina:number=0
+  const tamanho:number=10    
+
+    return this.http.get<any>("http://localhost:8080/produto/search/?nome="+pesquisa+"&pagina="+pagina+"&tamanho="+tamanho)
+}
+
+
   //Pesquisar Produto
   pesquisarNome(pesquisa:string){
     const pagina:number=0
@@ -65,9 +74,6 @@ removerProduto(id:string):Observable<Produto>{
           this.pesquisaProdutoSubject.next(sub.content)
 
       })
-    
-   
-    
   }
 
   listarPesquisa():Observable<any>{

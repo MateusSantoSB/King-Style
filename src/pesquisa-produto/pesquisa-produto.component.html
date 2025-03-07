@@ -6,4 +6,43 @@
     <div class="titulo">
      <h2>Pesquisar Produto</h2>
     </div>
+
+    
+  </div>
+  <div class="card p-3 text-center">
+    <div class="pesquisa">
+        <span>Nome do Produto:</span>
+        <div>
+           <form [formGroup]="pesquisa" (ngSubmit)="pesquisar()">
+            <input type="text" placeholder="Produto nome" formControlName="nome"> <button >buscar</button>
+        </form>
+        </div>
+    </div>
+
+    <div class="tabela" *ngIf="mostrarTabela">
+
+
+      <table class="table table-striped table-hover"  >
+       <thead>
+          <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Valor</th>
+              <th>Estoque</th>
+              <th>Promoção</th>
+          </tr>
+       </thead>
+       <tbody *ngFor="let produto of produtos">
+          <tr>
+              <th>{{produto.id}}</th>
+              <th>{{produto.nome}}</th>
+              <th>{{produto.valor}}</th>
+              <th>{{produto.quantidadeEstoque}}</th>
+              <th>{{produto.promocao}}</th>
+              <th><button (click)="copiarId(produto.id)">Copiar Id</button></th>
+          </tr>
+       </tbody>
+      </table>
+
+
 </div>

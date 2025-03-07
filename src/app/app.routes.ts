@@ -23,8 +23,8 @@ export const routes: Routes = [
     {path:'promocoes',component:PromocoesComponent},
     {path:'admProduto',component:AdmProdutoComponent, canActivate:[authenticationGuard]},
     {path:'login',component:LoginComponent},
-    {path:'adm',component:AdmComponent},
-    {path:'atualizarProduto',component:AtualizarProdutoComponent},
-    {path:'removerProduto',component:RemoverProdutoComponent},
-    {path:'pesquisarProduto',component:PesquisaProdutoComponent}
+    {path:'adm',component:AdmComponent,canActivate:[authenticationGuard]},
+    {path:'atualizarProduto',component:AtualizarProdutoComponent,canActivate:[authenticationGuard]},
+    {path:'removerProduto',component:RemoverProdutoComponent,canActivate:[authenticationGuard]},
+    {path:'pesquisarProduto',component:PesquisaProdutoComponent,canActivate:[authenticationGuard]}
 ];
