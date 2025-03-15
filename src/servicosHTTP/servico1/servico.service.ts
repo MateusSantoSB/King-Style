@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Cupom } from '../../models/Cupom';
 import { Endereco } from '../../models/Endereco';
 import { Carrinho } from '../../models/Carrinho';
+import { DadosPix } from '../../models/DadosPix';
 
 @Injectable({
   providedIn: 'root'
@@ -123,15 +124,20 @@ listarPromocoesPage(pagina:number,tamanho:number):Observable<any>{
       this.totalSubject.next(this.total)
     }   
 }
-removerDoCarrinho(id:string){
-  let index=this.carrinho.findIndex(pesquisaId=>pesquisaId.id==id)
+removerDoCarrinho(produto:Produto){
+  let index=this.carrinho.findIndex(pesquisaId=>pesquisaId.id==produto.id && pesquisaId.tamanhos[0]==produto.tamanhos[0])
   let pesquisa=this.carrinho[index]
+
   pesquisa.quantidade-=1
+
+ 
+
   if(pesquisa.quantidade>0){
 
     if(pesquisa.promocao==true){
         this.total-=pesquisa.valor-(pesquisa.valor/100*pesquisa.valorPromocao)
         this.totalSubject.next(this.total)
+
     }else{
       this.total-=pesquisa.valor
       this.totalSubject.next(this.total)
@@ -214,6 +220,10 @@ removerDoCarrinho(id:string){
 
   finalizarCompra(carrinho:Carrinho):Observable<Carrinho>{
    return this.http.post<Carrinho>("http://localhost:8080/carrinho",carrinho)
+  }
+
+  gerarPagamentoPix(dados:DadosPix):Observable<any>{
+      return this.http.post<DadosPix>("http://localhost:8080/pagamento",dados)    
   }
 
 

@@ -59,8 +59,8 @@ adicionar(produto:Produto){
   this.http.adicionarCarrinho(produto)
 }
 
-remover(id:string){
-  this.http.removerDoCarrinho(id)
+remover(produto:Produto){
+  this.http.removerDoCarrinho(produto)
   this.mostrarTotal()
 }
 mostrarCarrinho(){

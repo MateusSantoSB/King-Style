@@ -1,5 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,15 +8,19 @@ import { Observable } from 'rxjs';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private plataformId:Object) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
-    
+    let token:string  
+
+
+    if(isPlatformBrowser(this.plataformId)){
+      token= localStorage.getItem('token');
+    }
     if (token) {
       const clonedRequest = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
+          Authorization: token
         }
       });
       return next.handle(clonedRequest);  

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { ServicoService } from '../servicosHTTP/servico1/servico.service';
 import{FormControl,FormGroup,FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {jwtDecode} from 'jwt-decode';
 
 
@@ -23,7 +23,7 @@ export class CheaderComponent {
 })
 
 
-constructor(private router:Router,private service:ServicoService){
+constructor(private router:Router,private service:ServicoService,@Inject(PLATFORM_ID) private platformId:object){
 }
 
 usuario:string
@@ -34,9 +34,11 @@ ngOnInit(){
 
 
 areaUsuario(){
+ let token:string 
 
-  const token=localStorage.getItem('token')
-
+ if(isPlatformBrowser(this.platformId)){
+  token=localStorage.getItem('token')
+ }
   
   if(token!=null){
     const decoderJWT:any=jwtDecode(token)

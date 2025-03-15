@@ -59,12 +59,20 @@
   display: block !important;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
-  top: 11%;
+  top: 9.2%;
 }
 .modal-body{
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+@media (max-width: 600px) {
+  .modal {
+    display: block !important;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 11%; 
+  }
 }
 
 

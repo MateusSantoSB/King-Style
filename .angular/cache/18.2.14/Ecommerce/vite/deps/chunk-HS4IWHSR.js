@@ -1,6 +1,6 @@
 import {
   withHttpTransferCache
-} from "./chunk-Q4IFZAKC.js";
+} from "./chunk-65Q6IKU4.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -11,7 +11,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-IBXZIRMC.js";
+} from "./chunk-QEGZ2DYR.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -68,11 +68,11 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-RTJCVXYN.js";
+} from "./chunk-EKI5USAG.js";
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-WDMUDEB6.js";
+} from "./chunk-3OV72XIM.js";
 
 // node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
@@ -1936,4 +1936,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-A3K7LG3E.js.map
+//# sourceMappingURL=chunk-HS4IWHSR.js.map

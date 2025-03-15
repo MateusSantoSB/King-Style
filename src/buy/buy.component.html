@@ -5,7 +5,6 @@
         <div>
             <img src="pix.png" alt=""><img src="cartao.png" alt="">
         </div>        
-        
        
         <form [formGroup]="pagamentoCompleto" (ngSubmit)="mostrarPop()">    
         <div class="pagamento">
@@ -75,8 +74,8 @@
     
 
 
-    <div class="modal" tabindex="1" *ngIf="mostrarPopUp">
-        <div class="modal-dialog" >
+    <div class="modal" tabindex="1" *ngIf="mostrarPopUp" >
+        <div class="modal-dialog"  >
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Realizar Pagamento</h5>
@@ -108,7 +107,7 @@
                 <button (click)="copiarCodigo()">Copiar Codigo</button>
                 </ng-template >
             
-
+ 
      
                 <hr> 
                 <div style="display: flex;justify-content: center;font-size: larger;">
@@ -117,7 +116,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary"  (click)="xFechar()">Voltar</button>
-              <button type="button" class="btn btn-primary" (click)="mostrarPixx()">Gerar PIX</button>
+              <button type="button" class="btn btn-primary" (click)="mostrarPixx()"  *ngIf="btnMostrarPix">Gerar PIX</button>
             </div>
           </div>
         </div>
